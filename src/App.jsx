@@ -97,6 +97,7 @@ function Login({ onLogin }) {
         <h1 style={{ marginBottom: "12px", color: "green", fontSize: "22px" }}>
           EcoLearn
         </h1>
+
         <p style={{ fontSize: "13px", marginBottom: "16px" }}>
           Sustainable Living Education Platform
         </p>
@@ -209,7 +210,7 @@ function TopBar({ user, onBack, onLogout, showBack }) {
 // -------- DASHBOARD --------
 function Dashboard({ user, onChangeView, ecoPoints }) {
   return (
-    <div style={{ padding: "24px", fontFamily: "Arial" }}>
+    <div style={{ padding: "24px", fontFamily: "Arial", background: "white" }}>
       <h2>Dashboard</h2>
       <p style={{ fontSize: "13px", color: "#555" }}>
         Welcome to your sustainable learning journey!
@@ -230,6 +231,8 @@ function Dashboard({ user, onChangeView, ecoPoints }) {
 
       {!user.isAdmin && (
         <div style={{ display: "flex", gap: "20px" }}>
+          
+          {/* Lessons Card */}
           <button
             onClick={() => onChangeView("lessons")}
             style={{
@@ -238,6 +241,7 @@ function Dashboard({ user, onChangeView, ecoPoints }) {
               borderRadius: "10px",
               flex: 1,
               cursor: "pointer",
+              background: "white",
             }}
           >
             <h3>Lessons</h3>
@@ -246,6 +250,7 @@ function Dashboard({ user, onChangeView, ecoPoints }) {
             </p>
           </button>
 
+          {/* Projects Card */}
           <button
             onClick={() => onChangeView("projects")}
             style={{
@@ -254,12 +259,14 @@ function Dashboard({ user, onChangeView, ecoPoints }) {
               borderRadius: "10px",
               flex: 1,
               cursor: "pointer",
+              background: "white",
             }}
           >
             <h3>Projects</h3>
             <p style={{ fontSize: "12px" }}>Join eco challenges.</p>
           </button>
 
+          {/* Progress Card */}
           <button
             onClick={() => onChangeView("progress")}
             style={{
@@ -268,11 +275,13 @@ function Dashboard({ user, onChangeView, ecoPoints }) {
               borderRadius: "10px",
               flex: 1,
               cursor: "pointer",
+              background: "white",
             }}
           >
             <h3>Progress</h3>
             <p style={{ fontSize: "12px" }}>See your journey.</p>
           </button>
+
         </div>
       )}
 
@@ -289,7 +298,7 @@ function Dashboard({ user, onChangeView, ecoPoints }) {
 // -------- LESSON LIST --------
 function LessonsPage({ onOpenLesson }) {
   return (
-    <div style={{ padding: "24px", fontFamily: "Arial" }}>
+    <div style={{ padding: "24px", fontFamily: "Arial", background: "white" }}>
       <h2>Lessons</h2>
       <ul>
         {sampleLessons.map((lesson) => (
@@ -326,7 +335,7 @@ function LessonDetailPage({ lesson, onBack, onComplete }) {
   };
 
   return (
-    <div style={{ padding: "24px", fontFamily: "Arial" }}>
+    <div style={{ padding: "24px", fontFamily: "Arial", background: "white" }}>
       <button
         onClick={onBack}
         style={{
@@ -349,7 +358,7 @@ function LessonDetailPage({ lesson, onBack, onComplete }) {
         <label key={i} style={{ display: "block", marginBottom: "6px" }}>
           <input
             type="radio"
-            name="quiz"
+            name="quiz" 
             disabled={submitted}
             onChange={() => setSelected(i)}
           />
@@ -390,7 +399,7 @@ function LessonDetailPage({ lesson, onBack, onComplete }) {
 // -------- PROJECT PAGE --------
 function ProjectsPage() {
   return (
-    <div style={{ padding: "24px", fontFamily: "Arial" }}>
+    <div style={{ padding: "24px", fontFamily: "Arial", background: "white" }}>
       <h2>Projects</h2>
       <ul>
         {sampleProjects.map((p) => (
@@ -416,7 +425,7 @@ function ProjectsPage() {
 // -------- PROGRESS PAGE --------
 function ProgressPage({ ecoPoints }) {
   return (
-    <div style={{ padding: "24px", fontFamily: "Arial" }}>
+    <div style={{ padding: "24px", fontFamily: "Arial", background: "white" }}>
       <h2>Your Progress</h2>
       <p style={{ fontSize: "14px" }}>
         Eco Points: <strong>{ecoPoints}</strong>
@@ -457,7 +466,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#f5f5f5" }}>
+    <div style={{ minHeight: "100vh", background: "white" }}>
       <TopBar
         user={user}
         showBack={view !== "dashboard"}
@@ -466,7 +475,9 @@ export default function App() {
       />
 
       {view === "dashboard" && (
-        <Dashboard user={user} onChangeView={setView} ecoPoints={ecoPoints} />
+        <Dashboard user={user} onChangeView={setView}  
+
+ ecoPoints={ecoPoints} />
       )}
 
       {view === "lessons" && (

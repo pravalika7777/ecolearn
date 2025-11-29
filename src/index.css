@@ -77,4 +77,52 @@ body {
   color: #000 !important;   /* Ensure all text is dark */
   font-weight: 600 !important; /* Make text thick/bold */
 }
+/* FULL FIX FOR LIGHT / DARK UI ISSUES */
 
+/* Make all text visible */
+body, html {
+  color: #000 !important;
+  opacity: 1 !important;
+  background: #f8f8f8 !important;   /* clean background */
+}
+
+/* Reset ALL cards / divs that might have opacity */
+div {
+  opacity: 1 !important;
+  background-color: #ffffff !important; /* white cards */
+  color: #000 !important;
+}
+
+/* Style the dashboard cards properly */
+.dashboard-card {
+  background-color: #ffffff !important;
+  color: #000 !important;
+  opacity: 1 !important;
+  border: 2px solid #ccc !important;
+  border-radius: 10px !important;
+  padding: 20px !important;
+}
+
+/* Make all text darker and bold */
+* {
+  color: #111 !important;
+  font-weight: 600 !important;
+}
+
+/* PREVENT DARK MODE ON ALL DEVICES */
+:root {
+  color-scheme: light !important;
+}
+
+html, body {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Disable dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  html, body, div, * {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+}
